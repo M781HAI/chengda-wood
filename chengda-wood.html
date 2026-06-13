@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广州市诚达木业有限公司 - 专业木制品生产厂家</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft YaHei', '微软雅黑', Arial, sans-serif; color: #333; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        /* 导航栏 */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 70px; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 48px; height: 48px; background: linear-gradient(135deg, #8B4513, #D2691E); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 24px; }
+        .logo-text h1 { font-size: 20px; color: #8B4513; font-weight: bold; }
+        .logo-text span { font-size: 12px; color: #999; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { font-size: 15px; color: #555; transition: color 0.3s; position: relative; }
+        .nav-links a:hover, .nav-links a.active { color: #8B4513; }
+        .nav-links a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; right: 0; height: 2px; background: #8B4513; border-radius: 1px; }
+        .nav-cta { background: #8B4513; color: #fff; padding: 10px 24px; border-radius: 25px; font-size: 14px; transition: background 0.3s; }
+        .nav-cta:hover { background: #654321; }
+
+        /* Hero */
+        .hero { margin-top: 70px; min-height: 600px; background: linear-gradient(135deg, #3E2723 0%, #5D4037 40%, #8B4513 100%); display: flex; align-items: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 800px; height: 800px; background: rgba(255,255,255,0.03); border-radius: 50%; }
+        .hero::after { content: ''; position: absolute; bottom: -30%; left: -10%; width: 600px; height: 600px; background: rgba(210,105,30,0.1); border-radius: 50%; }
+        .hero-inner { max-width: 1200px; margin: 0 auto; padding: 80px 20px; display: flex; align-items: center; gap: 60px; position: relative; z-index: 1; }
+        .hero-text { flex: 1; color: #fff; }
+        .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); padding: 6px 16px; border-radius: 20px; font-size: 13px; margin-bottom: 20px; backdrop-filter: blur(10px); }
+        .hero-text h2 { font-size: 48px; font-weight: bold; line-height: 1.2; margin-bottom: 20px; }
+        .hero-text h2 span { color: #D2B48C; }
+        .hero-text p { font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 30px; max-width: 500px; }
+        .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; }
+        .btn-primary { background: #D2691E; color: #fff; padding: 14px 32px; border-radius: 30px; font-size: 15px; font-weight: bold; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary:hover { background: #CD853F; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(210,105,30,0.4); }
+        .btn-outline { border: 2px solid rgba(255,255,255,0.4); color: #fff; padding: 12px 30px; border-radius: 30px; font-size: 15px; transition: all 0.3s; }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+        .hero-visual { flex: 1; display: flex; justify-content: center; }
+        .hero-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; padding: 40px; width: 380px; color: #fff; }
+        .hero-card h3 { font-size: 20px; margin-bottom: 20px; color: #D2B48C; }
+        .hero-stat { display: flex; align-items: center; gap: 15px; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .hero-stat:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .stat-icon { width: 50px; height: 50px; background: rgba(210,105,30,0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+        .stat-info .stat-num { font-size: 24px; font-weight: bold; }
+        .stat-info .stat-label { font-size: 13px; color: rgba(255,255,255,0.6); }
+
+        /* 通用 */
+        .section { padding: 80px 20px; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-tag { display: inline-block; background: #F5E6D3; color: #8B4513; padding: 6px 18px; border-radius: 20px; font-size: 13px; font-weight: bold; margin-bottom: 15px; }
+        .section-header h2 { font-size: 36px; color: #333; margin-bottom: 15px; }
+        .section-header p { font-size: 16px; color: #888; max-width: 600px; margin: 0 auto; }
+
+        /* 关于我们 */
+        .about { background: #FAF8F5; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-img { position: relative; }
+        .about-img-box { width: 100%; height: 400px; background: linear-gradient(135deg, #8B4513, #D2691E); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 80px; position: relative; overflow: hidden; }
+        .about-img-box::after { content: '🌲'; position: absolute; font-size: 200px; opacity: 0.1; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+        .about-info h3 { font-size: 28px; color: #333; margin-bottom: 20px; }
+        .about-info p { font-size: 15px; color: #666; margin-bottom: 15px; line-height: 1.8; }
+        .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px; }
+        .about-feat { display: flex; align-items: center; gap: 10px; }
+        .about-feat .feat-icon { width: 36px; height: 36px; background: #F5E6D3; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+        .about-feat span { font-size: 14px; color: #555; }
+
+        /* 产品展示 */
+        .products { background: #fff; }
+        .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .product-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.3s; border: 1px solid #f0f0f0; }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+        .product-img { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 60px; color: #fff; position: relative; }
+        .product-img-1 { background: linear-gradient(135deg, #5D4037, #8B4513); }
+        .product-img-2 { background: linear-gradient(135deg, #33691E, #689F38); }
+        .product-img-3 { background: linear-gradient(135deg, #BF360C, #E64A19); }
+        .product-img-4 { background: linear-gradient(135deg, #37474F, #607D8B); }
+        .product-img-5 { background: linear-gradient(135deg, #4E342E, #795548); }
+        .product-img-6 { background: linear-gradient(135deg, #1B5E20, #388E3C); }
+        .product-badge { position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.4); color: #fff; padding: 4px 12px; border-radius: 12px; font-size: 12px; backdrop-filter: blur(10px); }
+        .product-body { padding: 24px; }
+        .product-body h3 { font-size: 18px; color: #333; margin-bottom: 10px; }
+        .product-body p { font-size: 14px; color: #888; margin-bottom: 15px; line-height: 1.6; }
+        .product-price { display: flex; align-items: center; justify-content: space-between; }
+        .price-tag { font-size: 22px; font-weight: bold; color: #8B4513; }
+        .price-unit { font-size: 13px; color: #aaa; }
+        .product-btn { background: #8B4513; color: #fff; padding: 8px 18px; border-radius: 20px; font-size: 13px; transition: background 0.3s; }
+        .product-btn:hover { background: #654321; }
+
+        /* 优势 */
+        .advantages { background: linear-gradient(135deg, #3E2723, #5D4037); color: #fff; }
+        .advantages .section-header h2 { color: #fff; }
+        .advantages .section-header p { color: rgba(255,255,255,0.6); }
+        .adv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .adv-card { text-align: center; padding: 40px 20px; background: rgba(255,255,255,0.05); border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); transition: all 0.3s; }
+        .adv-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); }
+        .adv-icon { font-size: 48px; margin-bottom: 20px; display: block; }
+        .adv-card h3 { font-size: 18px; margin-bottom: 10px; }
+        .adv-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+        /* 数据 */
+        .stats-bar { background: #FAF8F5; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+        .stats-item .stats-num { font-size: 48px; font-weight: bold; color: #8B4513; margin-bottom: 8px; }
+        .stats-item .stats-desc { font-size: 15px; color: #888; }
+
+        /* 联系方式 */
+        .contact { background: #fff; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .contact-info h3 { font-size: 24px; color: #333; margin-bottom: 30px; }
+        .contact-item { display: flex; gap: 18px; margin-bottom: 25px; }
+        .contact-icon { width: 50px; height: 50px; background: #F5E6D3; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+        .contact-item h4 { font-size: 16px; color: #333; margin-bottom: 5px; }
+        .contact-item p { font-size: 14px; color: #888; }
+        .contact-form { background: #FAF8F5; padding: 40px; border-radius: 20px; }
+        .contact-form h3 { font-size: 24px; color: #333; margin-bottom: 25px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 14px; color: #555; margin-bottom: 8px; font-weight: bold; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px 16px; border: 1px solid #e0e0e0; border-radius: 10px; font-size: 14px; font-family: inherit; transition: border-color 0.3s; background: #fff; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: #8B4513; }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-btn { background: #8B4513; color: #fff; padding: 14px 32px; border: none; border-radius: 30px; font-size: 15px; cursor: pointer; width: 100%; transition: background 0.3s; font-family: inherit; }
+        .form-btn:hover { background: #654321; }
+
+        /* 页脚 */
+        .footer { background: #2C1810; color: rgba(255,255,255,0.7); padding: 60px 20px 30px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand h3 { font-size: 22px; color: #fff; margin-bottom: 15px; }
+        .footer-brand p { font-size: 14px; line-height: 1.8; margin-bottom: 20px; }
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background 0.3s; }
+        .footer-social a:hover { background: rgba(255,255,255,0.2); }
+        .footer-col h4 { font-size: 16px; color: #fff; margin-bottom: 20px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { font-size: 14px; transition: color 0.3s; }
+        .footer-col ul li a:hover { color: #D2B48C; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 25px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+        .footer-bottom a { color: #D2B48C; }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .about-grid, .contact-grid { grid-template-columns: 1fr; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .adv-grid, .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .hero-inner { flex-direction: column; text-align: center; }
+            .hero-text h2 { font-size: 32px; }
+            .hero-btns { justify-content: center; }
+            .nav-links { display: none; }
+        }
+        @media (max-width: 600px) {
+            .product-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .adv-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        /* 回到顶部 */
+        .back-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: #8B4513; color: #fff; border: none; border-radius: 50%; font-size: 20px; cursor: pointer; box-shadow: 0 4px 15px rgba(139,69,19,0.4); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
+        .back-top.show { opacity: 1; visibility: visible; }
+        .back-top:hover { background: #654321; transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav class="navbar">
+    <div class="nav-inner">
+        <div class="logo">
+            <div class="logo-icon">🌲</div>
+            <div class="logo-text">
+                <h1>诚达木业</h1>
+                <span>CHENGDA WOOD</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">首页</a></li>
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#products">产品中心</a></li>
+            <li><a href="#advantages">企业优势</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">立即咨询</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <div class="hero-badge">🏭 专注木制品加工 · 11年行业经验</div>
+            <h2>广州市诚达木业<br><span>有限公司</span></h2>
+            <p>专业生产木托盘、木卡板、包装箱及各种木制品，产品广泛应用于物流、仓储、出口包装等领域，以优质的产品和服务赢得客户信赖。</p>
+            <div class="hero-btns">
+                <a href="#products" class="btn-primary">📦 查看产品</a>
+                <a href="#contact" class="btn-outline">📞 联系我们</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card">
+                <h3>📊 企业数据</h3>
+                <div class="hero-stat">
+                    <div class="stat-icon">🏭</div>
+                    <div class="stat-info">
+                        <div class="stat-num">11年</div>
+                        <div class="stat-label">行业经验</div>
+                    </div>
+                </div>
+                <div class="hero-stat">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <div class="stat-num">5-10人</div>
+                        <div class="stat-label">专业团队</div>
+                    </div>
+                </div>
+                <div class="hero-stat">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <div class="stat-num">100%</div>
+                        <div class="stat-label">准时履约率</div>
+                    </div>
+                </div>
+                <div class="hero-stat">
+                    <div class="stat-icon">🔄</div>
+                    <div class="stat-info">
+                        <div class="stat-num">51%</div>
+                        <div class="stat-label">客户回头率</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 关于我们 -->
+<section class="section about" id="about">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-tag">关于我们</div>
+            <h2>了解诚达木业</h2>
+            <p>立足广州白云区，专注木制品加工，以诚信经营和优质产品服务广大客户</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-img">
+                <div class="about-img-box">🏭</div>
+            </div>
+            <div class="about-info">
+                <h3>专业木制品生产商</h3>
+                <p>广州市白云区诚达木业（竹料诚达材料店）成立于2015年，是位于广州市白云区钟落潭镇的专业木制品生产加工企业。</p>
+                <p>公司主营木托盘、木卡板、包装箱、各种木制品、杂木板、松木板等产品，拥有完整、科学的质量管理体系，诚信、实力和产品质量获得业界认可。</p>
+                <p>我们支持来样加工、来图加工、包工包料等多种合作方式，定制起订量低至5个，满足不同客户的需求。</p>
+                <div class="about-features">
+                    <div class="about-feat"><div class="feat-icon">✅</div><span>ISO 9000认证</span></div>
+                    <div class="about-feat"><div class="feat-icon">✅</div><span>CCC认证</span></div>
+                    <div class="about-feat"><div class="feat-icon">✅</div><span>AA诚信等级</span></div>
+                    <div class="about-feat"><div class="feat-icon">✅</div><span>可开专票</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 产品中心 -->
+<section class="section products" id="products">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-tag">产品中心</div>
+            <h2>主营产品</h2>
+            <p>我们提供多种规格的木制品，支持定制加工，满足不同行业需求</p>
+        </div>
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="product-img product-img-1">
+                    📦
+                    <div class="product-badge">热销产品</div>
+                </div>
+                <div class="product-body">
+                    <h3>木托盘 / 木卡板</h3>
+                    <p>四面进叉设计，结实耐用，消毒处理干净，广泛应用于物流仓储行业。</p>
+                    <div class="product-price">
+                        <div><span class="price-tag">￥35</span><span class="price-unit"> 起/件</span></div>
+                        <a href="#contact" class="product-btn">询价</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img product-img-2">
+                    📋
+                    <div class="product-badge">定制加工</div>
+                </div>
+                <div class="product-body">
+                    <h3>木箱 / 包装箱</h3>
+                    <p>专业定制各种规格包装箱，适用于产品出口、运输、仓储等场景。</p>
+                    <div class="product-price">
+                        <div><span class="price-tag">￥240</span><span class="price-unit"> 起/件</span></div>
+                        <a href="#contact" class="product-btn">询价</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img product-img-3">
+                    🪵
+                    <div class="product-badge">厂家直销</div>
+                </div>
+                <div class="product-body">
+                    <h3>杂木板</h3>
+                    <p>多种规格杂木板供应，材质坚实，适用于包装、建筑、装修等多种用途。</p>
+                    <div class="product-price">
+                        <div><span class="price-tag">面议</span><span class="price-unit"></span></div>
+                        <a href="#contact" class="product-btn">询价</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img product-img-4">
+                    🌲
+                    <div class="product-badge">优质选材</div>
+                </div>
+                <div class="product-body">
+                    <h3>松木板</h3>
+                    <p>选用优质松木原料，经过专业处理，防虫防腐，质量可靠。</p>
+                    <div class="product-price">
+                        <div><span class="price-tag">面议</span><span class="price-unit"></span></div>
+                        <a href="#contact" class="product-btn">询价</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img product-img-5">
+                    📐
+                    <div class="product-badge">来图加工</div>
+                </div>
+                <div class="product-body">
+                    <h3>定制木制品</h3>
+                    <p>支持来样加工、来图加工，专业团队按需定制各类木制包装产品。</p>
+                    <div class="product-price">
+                        <div><span class="price-tag">面议</span><span class="price-unit"></span></div>
+                        <a href="#contact" class="product-btn">询价</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img product-img-6">
+                    🚚
+                    <div class="product-badge">快速发货</div>
+                </div>
+                <div class="product-body">
+                    <h3>大型木包装箱</h3>
+                    <p>大型设备、机械产品专用包装箱，承重强、结构稳固、运输安全。</p>
+                    <div class="product-price">
+                        <div><span class="price-tag">￥420</span><span class="price-unit"> 起/件</span></div>
+                        <a href="#contact" class="product-btn">询价</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- 企业优势 -->
+<section class="section advantages" id="advantages">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-tag" style="background:rgba(255,255,255,0.15);color:#D2B48C;">企业优势</div>
+            <h2>为什么选择诚达木业</h2>
+            <p>十余年行业沉淀，以品质和服务赢得客户信赖</p>
+        </div>
+        <div class="adv-grid">
+            <div class="adv-card">
+                <span class="adv-icon">🏭</span>
+                <h3>厂家直销</h3>
+                <p>自主生产基地，省去中间环节，价格更有优势，交期更有保障</p>
+            </div>
+            <div class="adv-card">
+                <span class="adv-icon">🔬</span>
+                <h3>品质保障</h3>
+                <p>通过ISO 9000认证，严格质量控制体系，产品品质稳定可靠</p>
+            </div>
+            <div class="adv-card">
+                <span class="adv-icon">⚡</span>
+                <h3>快速响应</h3>
+                <p>94%服务响应率，原材料采购仅需5天，高效满足客户需求</p>
+            </div>
+            <div class="adv-card">
+                <span class="adv-icon">🤝</span>
+                <h3>定制服务</h3>
+                <p>支持来样加工、来图加工，5个起订，灵活满足个性化需求</p>
+            </div>
+            <div class="adv-card">
+                <span class="adv-icon">📄</span>
+                <h3>开票无忧</h3>
+                <p>支持开具增值税发票（10%点数），合作更规范、更安心</p>
+            </div>
+            <div class="adv-card">
+                <span class="adv-icon">🚚</span>
+                <h3>物流便捷</h3>
+                <p>位于广州白云区钟落潭镇，交通便利，物流配送高效快捷</p>
+            </div>
+            <div class="adv-card">
+                <span class="adv-icon">🔄</span>
+                <h3>高回头率</h3>
+                <p>51%客户回头率，产品质量和服务赢得客户口碑认可</p>
+            </div>
+            <div class="adv-card">
+                <span class="adv-icon">🛡️</span>
+                <h3>信誉保证</h3>
+                <p>AA诚信等级，工商资质认证，阿里巴巴平台多重保障服务</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 数据展示 -->
+<section class="section stats-bar">
+    <div class="section-inner">
+        <div class="stats-grid">
+            <div class="stats-item">
+                <div class="stats-num">11</div>
+                <div class="stats-desc">年行业经验</div>
+            </div>
+            <div class="stats-item">
+                <div class="stats-num">100%</div>
+                <div class="stats-desc">准时履约率</div>
+            </div>
+            <div class="stats-item">
+                <div class="stats-num">51%</div>
+                <div class="stats-desc">客户回头率</div>
+            </div>
+            <div class="stats-item">
+                <div class="stats-num">5+</div>
+                <div class="stats-desc">定制起订量(个)</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 联系我们 -->
+<section class="section contact" id="contact">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-tag">联系我们</div>
+            <h2>欢迎洽谈合作</h2>
+            <p>欢迎各界朋友莅临参观、指导和业务洽谈</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>联系方式</h3>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>公司地址</h4>
+                        <p>广州市白云区钟落潭镇<br>广从四路36号之三101厂</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h4>联系电话</h4>
+                        <p>联系人：李总<br><a href="tel:15989191386" style="color:#8B4513;font-weight:bold;font-size:16px;">159 8919 1386</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div>
+                        <h4>营业时间</h4>
+                        <p>周一至周日 全天营业<br>准时履约率 100%</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🌐</div>
+                    <div>
+                        <h4>在线店铺</h4>
+                        <p>阿里巴巴1688平台旺铺<br>搜索"诚达木业"即可找到</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">✅</div>
+                    <div>
+                        <h4>资质认证</h4>
+                        <p>AA诚信等级 · CCC认证<br>ISO 9000认证 · 可开专票</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>在线留言</h3>
+                <form onsubmit="alert('感谢您的留言！我们会尽快与您联系。'); return false;">
+                    <div class="form-group">
+                        <label>您的姓名 *</label>
+                        <input type="text" placeholder="请输入您的姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label>联系电话 *</label>
+                        <input type="tel" placeholder="请输入联系电话" required>
+                    </div>
+                    <div class="form-group">
+                        <label>需求类型</label>
+                        <select>
+                            <option>请选择需求类型</option>
+                            <option>木托盘 / 木卡板</option>
+                            <option>木箱 / 包装箱</option>
+                            <option>杂木板 / 松木板</option>
+                            <option>定制木制品</option>
+                            <option>其他需求</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>留言内容</label>
+                        <textarea placeholder="请描述您的具体需求，如规格、数量等..."></textarea>
+                    </div>
+                    <button type="submit" class="form-btn">提交留言</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>🌲 诚达木业</h3>
+                <p>广州市诚达木业有限公司位于广州市白云区钟落潭镇，专业从事木托盘、木卡板、包装箱及各种木制品的生产加工，诚信经营，品质保证。</p>
+                <div class="footer-social">
+                    <a href="#">📱</a>
+                    <a href="#">💬</a>
+                    <a href="#">📧</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>产品中心</h4>
+                <ul>
+                    <li><a href="#products">木托盘 / 木卡板</a></li>
+                    <li><a href="#products">木箱 / 包装箱</a></li>
+                    <li><a href="#products">杂木板</a></li>
+                    <li><a href="#products">松木板</a></li>
+                    <li><a href="#products">定制木制品</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#home">网站首页</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#products">产品中心</a></li>
+                    <li><a href="#advantages">企业优势</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>📍 广州白云区钟落潭镇</li>
+                    <li>广从四路36号之三101厂</li>
+                    <li>📞 李总：159 8919 1386</li>
+                    <li>🕐 周一至周日全天</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2015-2026 广州市诚达木业有限公司 版权所有</span>
+            <span>粤ICP备XXXXXXXX号</span>
+        </div>
+    </div>
+</footer>
+
+<!-- 回到顶部 -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+    // 导航栏滚动效果
+    window.addEventListener('scroll', function() {
+        const backTop = document.getElementById('backTop');
+        if (window.scrollY > 300) {
+            backTop.classList.add('show');
+        } else {
+            backTop.classList.remove('show');
+        }
+
+        // 导航高亮
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
